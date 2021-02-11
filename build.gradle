@@ -1,5 +1,5 @@
 plugins {
-    id "architectury-plugin" version "2.0.65"
+    id "architectury-plugin" version "2.0.68"
     id "forgified-fabric-loom" version "0.6.59" apply false
 }
 
@@ -10,16 +10,12 @@ architectury {
 subprojects {
     apply plugin: "forgified-fabric-loom"
 
-    loom {
-        silentMojangMappingsLicense()
-    }
-    
     dependencies {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
-        // The following line declares the mojmap mappings, you may use other mappings as well
-        mappings loom.officialMojangMappings()
+        mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
     }
 }
+
 
 allprojects {
     apply plugin: "java"
